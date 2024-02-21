@@ -13,7 +13,6 @@ public class Lion extends Animal {
     // объект попадает в переменную класса
     public Lion(Feline feline){
         this.feline = feline;
-        ;
     }
 
     public Lion(String sex) throws Exception {
