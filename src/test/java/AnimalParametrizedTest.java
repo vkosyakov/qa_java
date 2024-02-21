@@ -1,4 +1,5 @@
 import com.example.Animal;
+import com.example.Lion;
 import org.junit.Assert;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -20,18 +21,22 @@ public class AnimalParametrizedTest {
         return new Object[][]{
                 {List.of("Трава", "Различные растения"), "Травоядное"},
                 {List.of("Животные", "Птицы", "Рыба"), "Хищник"},
-                {List.of("Test"), "Test"},
         };
     }
 
     @Test
-    public void testAnimal(){
-        try {
+    public void testAnimal() throws Exception{
             Animal animal = new Animal();
             Assert.assertEquals(animal.getFood(animalKind), eat);
-        } catch (Exception exception) {
-            System.out.println("Неизвестный вид животного, используйте значение Травоядное или Хищник");
-        }
 
+    }
+
+    @Test
+    public void animalThrowsException() {
+        Exception exception = Assert.assertThrows(Exception.class, () -> {
+            Animal animal = new Animal();
+            animal.getFood("Test");
+        });
+        Assert.assertEquals("Неизвестный вид животного, используйте значение Травоядное или Хищник", exception.getMessage());
     }
 }

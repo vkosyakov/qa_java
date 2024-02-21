@@ -1,6 +1,7 @@
 
 import com.example.Feline;
 import com.example.Lion;
+import org.junit.Assert;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.mockito.Mockito;
@@ -25,6 +26,9 @@ public class LionTest {
         Lion lion = new Lion(feline);
         lion.getKittensLion();
         Mockito.verify(feline, Mockito.times(1)).getKittens();
+        //проверка на кол-во котят, проверил мутационным тестирование, что проверка срабаьывает
+        Assert.assertEquals(lion.getKittensLion(),1);
     }
+
 
 }

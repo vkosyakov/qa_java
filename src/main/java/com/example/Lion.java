@@ -7,12 +7,13 @@ public class Lion extends Animal {
     boolean hasMane;
 
     // объект predator — поле класса Lion
-    private Predator predator;
+    private Feline feline;
 
     // Объект filine передаётся в конструтор. Он создан извне
     // объект попадает в переменную класса
-    public Lion(Predator predator){
-        this.predator = predator;
+    public Lion(Feline feline){
+        this.feline = feline;
+        ;
     }
 
     public Lion(String sex) throws Exception {
@@ -30,8 +31,7 @@ public class Lion extends Animal {
     }
 
     public int getKittensLion() {
-        // объект интерфейса predator используют, чтобы узнать кол-во потомства
-        return predator.getKittens();
+        return feline.getKittens();
     }
 
 

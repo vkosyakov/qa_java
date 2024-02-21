@@ -14,26 +14,26 @@ public class LionParametrizedTest {
         this.sex = sex;
         this.result = result;
     }
+
     @Parameterized.Parameters
     public static Object[][] test() {
         return new Object[][]{
                 {"Самец", true},
                 {"Самка", false},
-                {"Test",true},
         };
     }
 
     @Test
-    public void testLion(){
-        try{
-            Lion lion = new Lion(sex);
-            Assert.assertEquals(lion.doesHaveMane(),result);}
-        catch (Exception exception)
-        {
-            System.out.println("Используйте допустимые значения пола животного - самец или самка");
-        }
+    public void testLion() throws Exception {
+        Lion lion = new Lion(sex);
+        Assert.assertEquals(lion.doesHaveMane(), result);
+    }
 
-
-
+    @Test
+    public void constructorThrowsExceptionOnUnsupportedSex() {
+        Exception exception = Assert.assertThrows(Exception.class, () -> {
+            Lion lion = new Lion("Test");
+        });
+        Assert.assertEquals("Используйте допустимые значения пола животного - самец или самка", exception.getMessage());
     }
 }
