@@ -32,7 +32,7 @@ public class LionParametrizedTest {
     @Test
     public void constructorThrowsExceptionOnUnsupportedSex() {
         Exception exception = Assert.assertThrows(Exception.class, () -> {
-            Lion git lion = new Lion("Test");
+            Lion lion = new Lion("Test");
         });
         Assert.assertEquals("Используйте допустимые значения пола животного - самец или самка", exception.getMessage());
     }
