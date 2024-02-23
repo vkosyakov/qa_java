@@ -11,11 +11,9 @@ public class Lion extends Animal {
 
     // Объект filine передаётся в конструтор. Он создан извне
     // объект попадает в переменную класса
-    public Lion(Feline feline){
-        this.feline = feline;
-    }
 
-    public Lion(String sex) throws Exception {
+    //объединил конструкторы
+    public Lion(String sex, Feline feline) throws Exception {
         if ("Самец".equals(sex)) {
             hasMane = true;
         } else if ("Самка".equals(sex)) {
@@ -23,6 +21,7 @@ public class Lion extends Animal {
         } else {
             throw new Exception("Используйте допустимые значения пола животного - самец или самка");
         }
+        this.feline = feline;
     }
     //метод не зависит от класса Feline
     public boolean doesHaveMane() {

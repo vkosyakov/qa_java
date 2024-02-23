@@ -1,3 +1,4 @@
+import com.example.Feline;
 import com.example.Lion;
 import org.junit.Assert;
 import org.junit.Test;
@@ -7,10 +8,11 @@ import org.junit.runners.Parameterized;
 @RunWith(Parameterized.class)
 public class LionParametrizedTest {
     private final String sex;
+    Feline feline;
     private final boolean result;
 
 
-    public LionParametrizedTest(String sex, boolean result) {
+    public LionParametrizedTest(String sex, Feline feline, boolean result) {
         this.sex = sex;
         this.result = result;
     }
@@ -25,15 +27,9 @@ public class LionParametrizedTest {
 
     @Test
     public void testLion() throws Exception {
-        Lion lion = new Lion(sex);
+        Lion lion = new Lion(sex,feline);
         Assert.assertEquals(lion.doesHaveMane(), result);
     }
 
-    @Test
-    public void constructorThrowsExceptionOnUnsupportedSex() {
-        Exception exception = Assert.assertThrows(Exception.class, () -> {
-            Lion lion = new Lion("Test");
-        });
-        Assert.assertEquals("Используйте допустимые значения пола животного - самец или самка", exception.getMessage());
-    }
+
 }

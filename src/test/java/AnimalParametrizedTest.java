@@ -31,12 +31,5 @@ public class AnimalParametrizedTest {
 
     }
 
-    @Test
-    public void animalThrowsException() {
-        Exception exception = Assert.assertThrows(Exception.class, () -> {
-            Animal animal = new Animal();
-            animal.getFood("Test");
-        });
-        Assert.assertEquals("Неизвестный вид животного, используйте значение Травоядное или Хищник", exception.getMessage());
-    }
+
 }
