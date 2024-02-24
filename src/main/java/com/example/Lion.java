@@ -7,7 +7,7 @@ public class Lion extends Animal {
     boolean hasMane;
 
     // объект predator — поле класса Lion
-    private Feline feline;
+    private final Feline feline;
 
     // Объект filine передаётся в конструтор. Он создан извне
     // объект попадает в переменную класса

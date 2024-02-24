@@ -53,11 +53,4 @@ public class LionTest {
         });
         Assert.assertEquals("Используйте допустимые значения пола животного - самец или самка", exception.getMessage());
     }
-
-    //добавил проверку метода doesHaveMane в классе Lion
-    @Test
-    public void testDoesHaveMane() throws Exception{
-        Lion lion = new Lion(sex,feline);
-        Assert.assertTrue(lion.doesHaveMane());
-    }
 }
